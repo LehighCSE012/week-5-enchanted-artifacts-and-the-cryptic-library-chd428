@@ -103,10 +103,12 @@ def check_for_treasure(has_treasure):
 
 def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
     """iterates through each room in dungeon rooms"""
-    if artifacts["staff_of_wisdom"] in artifacts:
-        bypass = 0
-    else:
-        bypass = 1
+    for item in artifacts:
+        if item[1] == "staff_of_wisdom":
+            bypass = 1
+            break
+        else:
+            bypass = 0
     userschoice = ""
     for rooms in dungeon_rooms:
         print(rooms[0])
