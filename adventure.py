@@ -101,7 +101,7 @@ def check_for_treasure(has_treasure):
     elif has_treasure is False:
         print("The monster did not have the treasure. You continue your journey.")
 
-def enter_dungeon(player_stats, inventory, dungeon_rooms, clues):
+def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
     """iterates through each room in dungeon rooms"""
     bypass = 0
     userschoice = ""
@@ -188,13 +188,13 @@ def discover_artifact(player_stats, artifacts, artifact_name):
         power = artifacts[artifact_name].get("power")
         effect = artifacts[artifact_name].get("effect")
         print(desc)
-        if (effect == "increases health"):
+        if effect == "increases health":
             player_stats["health"] += power
             print("The artifact enhanced your health!")
-        elif (effect == "enhances attack"):
+        elif effect == "enhances attack":
             player_stats["attack"] += power
             print("The artifact enhanced your attack!")
-        elif (effect == "solves puzzles"):
+        elif effect == "solves puzzles":
             player_stats["wisdom"] += power
             print("The artifact enhanced your wisdom!")
         artifacts.pop(artifact_name)
@@ -258,7 +258,7 @@ def main():
             player_stats, artifacts = discover_artifact(player_stats, artifacts, artifact_name)
         display_player_status(player_stats)
     if player_stats['health'] > 0:
-        player_stats, inventory, clues = enter_dungeon(player_stats, inventory, dungeon_rooms, clues)
+        player_stats, inventory, clues = enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts)
     print("\n--- Game End ---")
     display_player_status(player_stats)
     print("Final Inventory:")
