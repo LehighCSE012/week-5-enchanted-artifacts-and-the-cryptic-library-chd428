@@ -103,9 +103,10 @@ def check_for_treasure(has_treasure):
 
 def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
     """iterates through each room in dungeon rooms"""
-    bypass = 1
     if artifacts["staff_of_wisdom"] in artifacts:
         bypass = 0
+    else:
+        bypass = 1
     userschoice = ""
     for rooms in dungeon_rooms:
         print(rooms[0])
@@ -212,10 +213,8 @@ def find_clue(clues, new_clue):
         print("You've discovered a new clue: [" + new_clue + "]")
         clues.add(new_clue)
     return clues
-
 def main():
     """Main game loop."""
-    
     dungeon_rooms = [
     ("Dusty library", "key", "puzzle",
      ("Solved puzzle!", "Puzzle unsolved.", -5)),
