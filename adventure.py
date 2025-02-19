@@ -165,12 +165,11 @@ def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
         if bypass != 0:
             bypass -= 1
         if rooms[2] == "none":
-            health_change = 0
+            player_stats["health"]+=0
         elif rooms[3] is not None:
-            health_change = rooms[3][2]
+            player_stats["health"] += rooms[3][2]
         else:
-            health_change = 0
-        player_stats["health"] += health_change
+            player_stats["health"]+=0
         if player_stats["health"] <= 0:
             player_stats["health"] = 0
             print("You are barely alive!")
