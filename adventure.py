@@ -103,6 +103,7 @@ def check_for_treasure(has_treasure):
 
 def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
     """iterates through each room in dungeon rooms"""
+    artifacts = artifacts
     bypass = 0
     userschoice = ""
     for rooms in dungeon_rooms:
