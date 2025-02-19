@@ -225,7 +225,7 @@ def main():
      ("Cracked code!", "Chest locked.", -5)),
     ("Cryptic Library", None, "library", None)
     ]
-    player_stats = {'health': 100, 'attack': 20, 'wisdom':0}
+    player_stats = {'health': 100, 'attack': 5, 'wisdom':0}
     monster_health = 70
     inventory = []
     clues = set()
