@@ -101,9 +101,8 @@ def check_for_treasure(has_treasure):
     elif has_treasure is False:
         print("The monster did not have the treasure. You continue your journey.")
 
-def enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts):
+def enter_dungeon(player_stats, inventory, dungeon_rooms, clues):
     """iterates through each room in dungeon rooms"""
-    artifacts = artifacts
     bypass = 0
     userschoice = ""
     for rooms in dungeon_rooms:
@@ -259,7 +258,7 @@ def main():
             player_stats, artifacts = discover_artifact(player_stats, artifacts, artifact_name)
         display_player_status(player_stats)
     if player_stats['health'] > 0:
-        player_stats, inventory, clues = enter_dungeon(player_stats, inventory, dungeon_rooms, clues, artifacts)
+        player_stats, inventory, clues = enter_dungeon(player_stats, inventory, dungeon_rooms, clues)
     print("\n--- Game End ---")
     display_player_status(player_stats)
     print("Final Inventory:")
